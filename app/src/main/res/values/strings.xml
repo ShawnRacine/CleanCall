@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">CleanCalls</string>
-    <string name="tab_1">电话拦截</string>
-    <string name="tab_2">信息拦截</string>
-    <string name="tab_3">通话记录</string>
+    <string name="tab_1">CallBlocker</string>
+    <string name="tab_2">SMSBlocker</string>
+    <string name="tab_3">CallRecords</string>
+
+    <string name="no_network">Cannot connect to the server!</string>
+    <string name="repeat_request">Repeat requests!</string>
 </resources>

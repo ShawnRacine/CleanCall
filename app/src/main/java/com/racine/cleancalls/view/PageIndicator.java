@@ -1,9 +1,9 @@
-package com.racine.cleancalls;
+package com.racine.cleancalls.view;
 
 import android.support.v4.view.ViewPager;
 
 /**
- * Created by sunrx on 2016/1/7.
+ * @author Shawn Racine.
  */
 public interface PageIndicator extends ViewPager.OnPageChangeListener {
     /**

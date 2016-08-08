@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/iv_logo"
+        android:paddingLeft="10dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/noti_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Downloading..."
+            android:textColor="@color/colorPrimary"
+            android:textSize="14dp" />
+
+        <ProgressBar
+            android:id="@+id/noti_pd"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noti_tip"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/noti_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/noti_pd"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="right"
+            android:text="Completed 0%"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14dp" />
+    </RelativeLayout>
+</RelativeLayout>

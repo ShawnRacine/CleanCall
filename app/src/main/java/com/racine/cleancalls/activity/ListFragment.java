@@ -1,4 +1,4 @@
-package com.racine.cleancalls;
+package com.racine.cleancalls.activity;
 
 import android.content.Context;
 import android.os.Bundle;

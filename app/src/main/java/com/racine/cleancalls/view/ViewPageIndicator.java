@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.racine.cleancalls;
+package com.racine.cleancalls.view;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -32,6 +32,8 @@ import android.view.ViewConfiguration;
 /**
  * Draws a line for each page. The current page line is colored differently
  * than the unselected page lines.
+ *
+ * @author Shawn Racine.
  */
 public class ViewPageIndicator extends View implements PageIndicator {
     private static final int INVALID_POINTER = -1;

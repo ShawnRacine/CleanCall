@@ -1,4 +1,4 @@
-package com.racine.cleancalls;
+package com.racine.cleancalls.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.racine.cleancalls.R;
+import com.racine.cleancalls.view.ViewPageIndicator;
+
+/**
+ * @author Shawn Racine.
+ */
 public class MainActivity extends AppCompatActivity implements ListFragment.OnTabSelectedListener {
     private TextView tab_1;
     private TextView tab_2;
@@ -29,9 +35,9 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnTa
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
 
-        tab_1 = (TextView)findViewById(R.id.tab_1);
-        tab_2 = (TextView)findViewById(R.id.tab_2);
-        tab_3 = (TextView)findViewById(R.id.tab_3);
+        tab_1 = (TextView) findViewById(R.id.tab_1);
+        tab_2 = (TextView) findViewById(R.id.tab_2);
+        tab_3 = (TextView) findViewById(R.id.tab_3);
 
         indicator = (ViewPageIndicator) findViewById(R.id.indicator);
         container = (ViewPager) findViewById(R.id.container);
