@@ -7,14 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 /**
  * Created by sunrx on 2016/8/8.
  */
-public class ListFragment extends Fragment {
-    private Context mContext;
+public abstract class BaseFragment extends Fragment {
+    protected View mView;
+    protected Context mContext;
     protected OnTabSelectedListener mListener;
+
+    protected LayoutInflater inflater;
 
     @Override
     public void onAttach(Context context) {
@@ -28,20 +30,35 @@ public class ListFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        TextView textView = new TextView(mContext);
-        textView.setText("");
-        return textView;
+        this.inflater = inflater;
+
+        onCreateView();
+
+        initComponents();
+
+        registListeners();
+
+        loadDatas();
+
+        return mView;
     }
 
+    protected void setContentView(int layout) {
+        mView = inflater.inflate(layout, null);
+    }
+
+    protected abstract void onCreateView();
+
+    protected abstract void initComponents();
+
+    protected abstract void registListeners();
+
+    protected abstract void loadDatas();
+
     interface OnTabSelectedListener {
-        public void onArticleSelected(Object obj, int what);
+        void onArticleSelected(Object obj, int what);
     }
 }

@@ -16,7 +16,7 @@ import com.racine.cleancalls.view.ViewPageIndicator;
 /**
  * @author Shawn Racine.
  */
-public class MainActivity extends AppCompatActivity implements ListFragment.OnTabSelectedListener {
+public class MainActivity extends AppCompatActivity implements BaseFragment.OnTabSelectedListener {
     private TextView tab_1;
     private TextView tab_2;
     private TextView tab_3;
@@ -60,13 +60,7 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnTa
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//                if (position == 0) {
-//                    fragment = new ListFragment();
-//                } else if (position == 1) {
-//                    fragment = new ListFragment();
-//                } else {
-//                    fragment = new ListFragment();
-//                }
+
             }
 
             @Override
@@ -118,13 +112,13 @@ public class MainActivity extends AppCompatActivity implements ListFragment.OnTa
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if (position == 0) {
-                fragment = new ListFragment();
+                fragment = new CallBlockerFragment();
                 return fragment;
             } else if (position == 1) {
-                fragment = new ListFragment();
+                fragment = new SMSBlockerFragment();
                 return fragment;
             } else {
-                fragment = new ListFragment();
+                fragment = new CallRecordsFragment();
                 return fragment;
             }
         }
