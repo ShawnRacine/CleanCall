@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">CleanCalls</string>
+    <string name="tab_1">电话拦截</string>
+    <string name="tab_2">信息拦截</string>
+    <string name="tab_3">通话记录</string>
 </resources>
