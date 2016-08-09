@@ -6,9 +6,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.racine.cleancalls.R;
-import com.racine.cleancalls.net.HttpApi.JsonHttpApi;
+import com.racine.cleancalls.net.HttpApi.MapHttpApi;
 import com.racine.cleancalls.net.HttpApi.bean.Response;
-import com.racine.cleancalls.net.ThreadTask.JsonThreadTask;
+import com.racine.cleancalls.net.ThreadTask.MapThreadTask;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Shawn Racine.
@@ -41,15 +44,18 @@ public class CallBlockerFragment extends BaseFragment {
 
     @Override
     protected void loadDatas() {
-        new JsonThreadTask() {
+        new MapThreadTask() {
             @Override
-            protected String onPreExecute() {
-                return super.onPreExecute();
+            protected Map<String, String> onPreExecute() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("mobile", "13501087144");
+                params.put("password", "a123456");
+                return params;
             }
 
             @Override
-            protected Response doInBackground(String s) {
-                return new JsonHttpApi("", "").POST();
+            protected Response doInBackground(Map<String, String> stringStringMap) {
+                return new MapHttpApi("http://agent.house.ifeng.com/api/login/validate",stringStringMap).POST();
             }
 
             @Override
