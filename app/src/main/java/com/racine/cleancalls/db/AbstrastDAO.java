@@ -16,6 +16,11 @@ public abstract class AbstrastDAO<T> {
     protected String TABLE_NAME;
     protected String PRIMARY_KEY;
 
+    /**
+     * Need to assigns <b>TABLE_NAME</b> AND <b>PRIMARY_KEY</b> a corresponding value.
+     *
+     * @param context
+     */
     public AbstrastDAO(Context context) {
         helper = new DBHelper(context);
         db = helper.getWritableDatabase();
@@ -67,7 +72,7 @@ public abstract class AbstrastDAO<T> {
     }
 
     /**
-     * if it exist where clause,guarantee return the String[] object of which lenght must greater than 1.
+     * if it exist where clause,guarantee return the String[] object of which length must greater than 1.
      * if not,return null.
      *
      * @param model the object prepared to remove

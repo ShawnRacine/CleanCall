@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnTa
         container.setAdapter(mSectionsPagerAdapter);
 
         indicator.setViewPager(container);
-        indicator.setSelectedColor(getResources().getColor(R.color.white));
+        indicator.setSelectedColor(getResources().getColor(R.color.WHITE));
 
         tab_1.setOnClickListener(onClicker);
         tab_2.setOnClickListener(onClicker);
@@ -112,15 +112,13 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.OnTa
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if (position == 0) {
-                fragment = new CallBlockerFragment();
-                return fragment;
-            } else if (position == 1) {
-                fragment = new SMSBlockerFragment();
-                return fragment;
-            } else {
                 fragment = new CallRecordsFragment();
-                return fragment;
+            } else if (position == 1) {
+                fragment = new CallBlockerFragment();
+            } else {
+                fragment = new SMSBlockerFragment();
             }
+            return fragment;
         }
 
         @Override

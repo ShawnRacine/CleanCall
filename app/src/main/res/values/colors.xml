@@ -4,5 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#0097f5</color>
 
-    <color name="white">#FFFFFF</color>
+    <color name="WHITE">#FFFFFF</color>
+
+    <color name="BLACK">#000000</color>
+
+    <color name="GRAY">#808080</color>
+    <color name="grayAAA">#AAAAAA</color>
+    <color name="grayEEE">#EEEEEE</color>
+
+    <color name="RED">#FF0000</color>
 </resources>

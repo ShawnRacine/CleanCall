@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author Shawn Racine.
  */
 public class DBHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "houseliker.db";
+    private static final String DATABASE_NAME = "harassment.db";
     private static final int DATABASE_VERSION = 1;
 
     public DBHelper(Context context) {
@@ -23,8 +23,10 @@ public class DBHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS LoupanHistory" +
-                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, houseId INTEGER, houseName VARCHAR, address TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS CallBlocker" +
+                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, phone INTEGER, type INTEGER, remark TEXT)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS SMSBlocker" +
+                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, phone INTEGER, type INTEGER, content TEXT)");
     }
 
     @Override
