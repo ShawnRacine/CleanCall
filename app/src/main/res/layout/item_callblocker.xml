@@ -47,7 +47,7 @@
                 android:layout_toLeftOf="@+id/iv_mark">
 
                 <TextView
-                    android:id="@+id/tv_displayname"
+                    android:id="@+id/tv_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
@@ -55,12 +55,12 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/tv_phone"
+                    android:id="@+id/tv_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_displayname"
+                    android:layout_below="@id/tv_phone"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-                    android:gravity="center_vertical"
                     android:textColor="@color/GRAY"
                     android:textSize="14sp" />
 
@@ -68,23 +68,12 @@
                     android:id="@+id/tv_remark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_displayname"
+                    android:layout_below="@id/tv_phone"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/tv_phone"
+                    android:layout_toRightOf="@id/tv_type"
                     android:textColor="@color/GRAY"
                     android:textSize="14sp" />
-
-                <ImageView
-                    android:id="@+id/iv_outcalls"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_displayname"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_toRightOf="@id/tv_remark"
-                    android:scaleType="center"
-                    android:src="@mipmap/phone_forward" />
 
             </RelativeLayout>
 

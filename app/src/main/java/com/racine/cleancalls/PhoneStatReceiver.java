@@ -14,6 +14,7 @@ import com.android.internal.telephony.ITelephony;
 import com.racine.cleancalls.db.CallBlocker;
 import com.racine.cleancalls.db.CallBlockerDAO;
 import com.racine.cleancalls.db.SMSBlockerDAO;
+import com.racine.cleancalls.utils.StringUtils;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -43,7 +44,8 @@ public class PhoneStatReceiver extends BroadcastReceiver {
                     CallBlocker model = new CallBlocker();
                     model.phone = income;
                     model.type = "1";
-                    model.remark = "";
+                    model.date = "" + System.currentTimeMillis();
+                    model.remark = "Beijing China Mobile";
                     callBlockerDAO.insert(model);
                 }
                 break;
@@ -55,6 +57,8 @@ public class PhoneStatReceiver extends BroadcastReceiver {
     }
 
     private boolean isHarassedPhone(String income) {
+        if (StringUtils.isNullOrEmpty(income))
+            return false;
         return true;
     }
 

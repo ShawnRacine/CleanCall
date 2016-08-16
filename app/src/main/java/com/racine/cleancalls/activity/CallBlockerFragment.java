@@ -2,16 +2,16 @@ package com.racine.cleancalls.activity;
 
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.racine.cleancalls.R;
+import com.racine.cleancalls.adapter.CallBlocerAdapter;
 import com.racine.cleancalls.db.CallBlocker;
 import com.racine.cleancalls.db.CallBlockerDAO;
 import com.racine.cleancalls.net.HttpApi.MapHttpApi;
 import com.racine.cleancalls.net.HttpApi.bean.Response;
 import com.racine.cleancalls.net.ThreadTask.MapThreadTask;
-import com.racine.cleancalls.utils.StringUtils;
+import com.racine.cleancalls.net.ThreadTask.VoidThreadTask;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +23,8 @@ import java.util.Map;
 public class CallBlockerFragment extends BaseFragment {
     private CallBlockerDAO callBlockerDAO;
     private ListView listView;
+    private List<CallBlocker> mList;
+    private CallBlocerAdapter adapter;
     private static final String[] strs = new String[]{
             "10086", "10086", "10086", "10086", "10086"
     };
@@ -50,6 +52,21 @@ public class CallBlockerFragment extends BaseFragment {
 
     @Override
     protected void loadDatas() {
+        new VoidThreadTask(){
+
+            @Override
+            protected Void doInBackground(Void aVoid) {
+                mList = callBlockerDAO.queryAll();
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                adapter = new CallBlocerAdapter(mContext, mList);
+                listView.setAdapter(adapter);
+            }
+        }.execute();
+
         new MapThreadTask() {
             @Override
             protected Map<String, String> onPreExecute() {
@@ -67,15 +84,9 @@ public class CallBlockerFragment extends BaseFragment {
             @Override
             protected void onPostExecute(Response response) {
                 super.onPostExecute(response);
-                List<CallBlocker> list = callBlockerDAO.queryAll();
-                if (list != null && list.size() > 0) {
-                    if (!StringUtils.isNullOrEmpty(list.get(0).phone)) {
-                        strs[0] = list.get(0).phone;
-                    }
-                }
-                listView.setAdapter(new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, strs));
+
             }
-        }.execute();
+        };
     }
 
 }

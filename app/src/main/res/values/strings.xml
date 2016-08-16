@@ -6,4 +6,12 @@
 
     <string name="no_network">Cannot connect to the server!</string>
     <string name="repeat_request">Repeat requests!</string>
+
+    <!--blocking type-->
+    <string name="other">Other</string>
+    <string name="promotion">Promotion</string>
+    <string name="fraud">Fraud</string>
+    <string name="estate_agency">Estate Agency</string>
+    <string name="private_loan">Private Loan</string>
+    <string name="training_agency">Training Agency</string>
 </resources>

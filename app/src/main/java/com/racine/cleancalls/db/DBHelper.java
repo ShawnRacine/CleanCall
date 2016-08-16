@@ -24,9 +24,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS CallBlocker" +
-                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, phone INTEGER, type INTEGER, remark TEXT)");
+                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, phone INTEGER, type INTEGER, date INTEGER, remark TEXT)");
         db.execSQL("CREATE TABLE IF NOT EXISTS SMSBlocker" +
-                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, phone INTEGER, type INTEGER, content TEXT)");
+                "(_id INTEGER PRIMARY KEY AUTOINCREMENT, phone INTEGER, type INTEGER, date INTEGER, content TEXT)");
     }
 
     @Override

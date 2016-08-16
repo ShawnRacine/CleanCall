@@ -6,5 +6,6 @@ package com.racine.cleancalls.db;
 public class SMSBlocker {
     public String phone;
     public String type;
+    public String date;
     public String content;
 }
